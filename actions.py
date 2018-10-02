@@ -37,9 +37,12 @@ def create_club():
         i+=1
     #user chooses the names
     member_choice = input()
-    while int(member_choice) != -1:
-        new_club.recruit_member(myself)
-        new_club.recruit_member(population[int(member_choice)-1])
+    while int(member_choice) != -1:            
+        if int(member_choice) in range (1,16):
+            new_club.recruit_member(myself)
+            new_club.recruit_member(population[int(member_choice)-1])
+        else:
+            print ("Invalid member, please try again.")
         member_choice = input()
     print ("------------------------------------------------------")
     print ("\tClub name: %s\n\tClub description: %s\n\tClub President: %s" % (new_club.name, club_description, my_name))
@@ -59,10 +62,11 @@ def view_clubs():
 
 def view_club_members():
     club_choice = input ("\nEnter the club name whose members you'd like to see: ")
-    print ("\nMembers:")
+    print ("\n\tMembers:")
     for club in clubs:
         if club_choice.lower() == club.name.lower():
             club.print_member_list()
+            print ("\n\tClub President: %s" %club.president.name)
                 
 
     

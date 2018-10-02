@@ -11,6 +11,7 @@ class Club():
         self.name = name
         self.description = description
         self.club_members = []
+        self.president= None
 
 
     def assign_president(self, person):
